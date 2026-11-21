@@ -6,7 +6,13 @@ date: 2026-11-13
 
 <img src="/assets/images/spray.png" alt="paint spray" class="post-figure-right">
 
-For three weeks I worked on a side project with a simple premise: AI
+
+> _Even the most perfect reproduction of a work of art is lacking in one element: Its presence in time and space, its unique existence at the place where it happens to be._
+>
+> — Walter Benjamin
+
+
+For around one month I worked on a side project with a simple premise: AI
 detectors guess from the final image, but whether a human made a picture is a
 fact about *how* it was made. Digital illustrators already record that. Procreate
 saves a time-lapse of every stroke inside the project file. So why not check
@@ -15,17 +21,30 @@ illustrators a proof that holds up?
 
 I wrote the code. Then I went looking for someone who would pay for it. This
 post is about what I found, because I think the findings are more useful than
-the code (which is now [open source](REPO_URL)).
+the code (which is now [open source](https://github.com/andreanerla/hic-et-nunc)).
 
-## The idea, in one paragraph
+## The name and philosophy behind the project 
+The latin concept of [hic-et-nunc](https://it.wikipedia.org/wiki/Hic_et_nunc) (literally: here and now) has been interpreted in various ways by the different philosophical traditions. Walter Benjamin uses it in his essay ["The Work of Art in the Age of Mechanical Reproduction"](https://en.wikipedia.org/wiki/The_Work_of_Art_in_the_Age_of_Mechanical_Reproduction) to describe the spatial, temporal and cultural configuration in which the original work of art gets created and by which the work of art possesses an _aura_ which gets lost in the mechanical reproduction of the work of art. This process is not only destructive; Benjamin thinks that the reproduction of the work of art, and consequently its displacement of _hic et nunc_ and loss of _aura_, are also positive forces, by virtue of getting the masses closer to the work of art, even if in its reproduced version. If you're interested in it I suggest reading the whole essay, which is around 50 pages long.
 
-An illustrator uploads her working file and the final image. The tool replays
-the recorded process and checks a few things: does the last frame match the
-delivered image, does the drawing build up over time the way drawings do, are
-there large regions that appear in one step (a pasted image), does the final
-file differ structurally from what was drawn. It doesn't say "AI" or "not AI".
-It says whether the delivered image is consistent with a recorded human
-process, and flags what a reviewer should look at.
+My project is a humble attempt at reconstructing the process of creation of a digital work of art, somehow reproducing its _hic et nunc_ and bringing back its lost _aura_.
+
+## The idea
+An illustrator gives the tool her recorded process and the final image. The
+recording can come from two places. One is a time-lapse read after the fact:
+an exported video, or a Procreate file (that reader hasn't been tried on a real
+file yet). The other is a recording made live in Krita with a plugin I wrote,
+which logs every pen stroke and a snapshot of the canvas every five seconds in
+a hash-chained log. Recording live turned out to be much stronger evidence than
+reading a time-lapse afterwards, so Krita became the main path.
+
+The tool runs on the illustrator's own computer and checks a few things: does
+the last recorded state match the delivered image, did the canvas start blank,
+are there large detailed regions that appear in one step (a pasted image), does
+the line work follow the edges of a declared reference (tracing), and does the
+delivered image differ locally from what was drawn (a signature, a logo,
+replaced content). It doesn't say "AI" or "not AI". It writes one page for a
+client or a jury: *consistent*, *needs review* or *inconsistent*, with the
+reasons and what a reviewer should look at.
 
 ## First problem: the cheap alternative is very good
 
@@ -140,7 +159,10 @@ already draw stroke by stroke in a real app, which would produce a genuine
 recording of a process no human performed. The moment AI images get good
 enough that juries *and* crowds can't tell, process recordings may get easier
 to fake too. And when demand does arrive, the cheapest answer is the drawing
-app itself exporting a signed time-lapse, not a third party analyzing it.
+app itself exporting a signed time-lapse, not a third party analyzing it. My
+Krita plugin is a step in that direction, but it's a plugin anyone can install
+and its log is written on the illustrator's own machine, so a determined forger
+could rebuild it. The app's maker is in a better position to sign it.
 
 ## What I'd do differently
 
@@ -154,13 +176,22 @@ app itself exporting a signed time-lapse, not a third party analyzing it.
 
 ## What's left
 
-The code is [on GitHub](REPO_URL) under AGPL: it reads a Procreate file or any
-time-lapse video, compares it with the final image, and reports consistency,
-pasted regions and structural changes. All thresholds are calibrated on
-synthetic images only, and the README says where they're weak. If you run a
+The code is [on GitHub](https://github.com/andreanerla/hic-et-nunc) under AGPL.
+It records a drawing live in Krita, or reads a time-lapse video or a Procreate
+file after the fact, compares the process with the final image, and writes a
+one-page report that flags pastes, tracing, a canvas that didn't start blank
+and local changes. The tracing limit was set on six real Krita sessions and the
+delivered-image check was tested on nine, but they were all drawn by one person
+(me) with one tablet. The other thresholds are calibrated on synthetic images
+only, and the README says where they're weak. If you run a
 competition, a certification service or a commission platform and *do* spend
 time checking process files by hand, I'd like to hear from you.
 
 Maybe it's simply too early. If an illustration competition ever adds a
 verification step to its rules, or a drawing app ships signed process exports,
 I'll know.
+
+## Wait, have you used AI to create this product? 
+Indeed; I've let the AI produce the code and basically never checked the codebase myself.  
+To me the code needed for this product was never the point. It was just a means to an end, and it would've been far from being a work of art anyway. 
+Moreover, my view on the relation between AI and art is not simply "AI should be kept away from the realm of art". I've already witnessed fruitful blends of AI in art in the field of [music](https://en.wikipedia.org/wiki/Exai) and [painting](https://en.wikipedia.org/wiki/Edmond_de_Belamy). In chess, the most artistic moves I've seen were made by Stockfish or similar engines; Matthew Sadler writes about it at length in his great book [The Silicon Road to Chess Improvement](https://www.amazon.com/dp/9056919830). With that said, I think it's useful to understand _how_ a work of art was made, that's the ethos behind my product.

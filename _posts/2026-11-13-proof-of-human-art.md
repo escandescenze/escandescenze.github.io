@@ -23,12 +23,8 @@ I wrote the code. Then I went looking for someone who would pay for it. This
 post is about what I found, because I think the findings are more useful than
 the code (which is now [open source](https://github.com/andreanerla/hic-et-nunc)).
 
-## The name and philosophy behind the project 
-The latin concept of [hic-et-nunc](https://it.wikipedia.org/wiki/Hic_et_nunc) (literally: here and now) has been interpreted in various ways by the different philosophical traditions. Walter Benjamin uses it in his essay ["The Work of Art in the Age of Mechanical Reproduction"](https://en.wikipedia.org/wiki/The_Work_of_Art_in_the_Age_of_Mechanical_Reproduction) to describe the spatial, temporal and cultural configuration in which the original work of art gets created and by which the work of art possesses an _aura_ which gets lost in the mechanical reproduction of the work of art. This process is not only destructive; Benjamin thinks that the reproduction of the work of art, and consequently its displacement of _hic et nunc_ and loss of _aura_, are also positive forces, by virtue of getting the masses closer to the work of art, even if in its reproduced version. If you're interested in it I suggest reading the whole essay, which is around 50 pages long.
-
-My project is a humble attempt at reconstructing the process of creation of a digital work of art, somehow reproducing its _hic et nunc_ and bringing back its lost _aura_.
-
 ## The idea
+
 An illustrator gives the tool her recorded process and the final image. The
 recording can come from two places. One is a time-lapse read after the fact:
 an exported video, or a Procreate file (that reader hasn't been tried on a real
@@ -45,6 +41,12 @@ delivered image differ locally from what was drawn (a signature, a logo,
 replaced content). It doesn't say "AI" or "not AI". It writes one page for a
 client or a jury: *consistent*, *needs review* or *inconsistent*, with the
 reasons and what a reviewer should look at.
+
+## The name and philosophy behind the project
+
+The latin concept of [hic-et-nunc](https://it.wikipedia.org/wiki/Hic_et_nunc) (literally: here and now) has been interpreted in various ways by the different philosophical traditions. Walter Benjamin uses it in his essay ["The Work of Art in the Age of Mechanical Reproduction"](https://en.wikipedia.org/wiki/The_Work_of_Art_in_the_Age_of_Mechanical_Reproduction) to describe the spatial, temporal and cultural configuration in which the original work of art gets created and by which the work of art possesses an _aura_ which gets lost in the mechanical reproduction of the work of art. This process is not only destructive; Benjamin thinks that the reproduction of the work of art, and consequently its displacement of _hic et nunc_ and loss of _aura_, are also positive forces, by virtue of getting the masses closer to the work of art, even if in its reproduced version. If you're interested in it I suggest reading the whole essay, which is around 50 pages long.
+
+My project is a humble attempt at reconstructing the process of creation of a digital work of art, somehow reproducing its _hic et nunc_ and bringing back its lost _aura_.
 
 ## First problem: the cheap alternative is very good
 
@@ -79,47 +81,16 @@ The one that publishes numbers reports 36 certified works. There are more
 reviews process evidence does it manually, which was the one gap I could see:
 nobody analyzes the working file automatically.
 
-## Third problem: the people with an AI ban don't feel a problem
+I wrote to the certifiers that review by hand. One showed interest and
+proposed a meeting, then went quiet; the others haven't answered.
 
-Illustrators don't pay for proof; good-faith doubters are usually convinced by
-a free time-lapse, and bad-faith accusers aren't convinced by anything (more on
-that below). So the buyer had to be someone who *enforces* an AI rule.
+## What happens to illustrators
 
-Every major illustration competition I checked bans AI:
-
-| Competition | Rule | Verification described in the rules |
-|---|---|---|
-| Bologna Illustrators Exhibition | AI tools "not permitted" | none |
-| Society of Illustrators Annual | AI "at any capacity" not eligible | none |
-| Communication Arts Illustration | no text-to-image submissions | hi-res files from winners |
-| 3x3 International Illustration Show | no AI-generated images | hi-res files from winners |
-| Illustration West | entrant warrants work isn't mainly AI | none |
-| San Diego Comic-Con Art Show | AI "partially or wholly" not allowed | the coordinator decides |
-
-Bologna alone received 20,840 illustrations from 4,168 illustrators in 2026.
-Nobody can check that by hand. That looked like the opening.
-
-Then the organizers answered. Two of the large US annuals replied:
-
-- One said the rule deters most AI entries. Some AI work had been entered, and
-  some had even been **selected as winners**; they catch it when they ask
-  winners for more information. Their verdict: they don't see a tool being
-  useful for their process.
-- The other said "no AI" is basically an honor system, but illustrators are so
-  strongly against AI that they doubt they receive AI entries at all.
-
-A children's book publisher I interviewed commissions 100 to 500 illustrations
-a year, half from new illustrators, and has never once doubted one. They follow
-the sketches as the work progresses and rely on a "no AI" clause in the
-contract.
-
-Put together: the rule is there, enforcement is light, and nobody experiences
-that as a cost. You can't sell a painkiller to someone who isn't in pain.
-
-## What the public threads showed
-
-I also read through public accounts of illustrators accused of using AI. Selected
-for incidents, so they show *what* happens, not *how often*:
+Asking illustrators directly got me little. I messaged six; the one who
+answered wasn't interested and didn't know anyone who'd had problems with AI
+accusations. So I read through public accounts of illustrators accused of using
+AI instead. They're selected for incidents, so they show *what* happens, not
+*how often*:
 
 - Accusations are common for artists who are visible online, and grow with
   visibility.
@@ -135,6 +106,45 @@ for incidents, so they show *what* happens, not *how often*:
 
 A stronger proof doesn't help much with either group: the first already
 believes cheap proof, the second won't believe any.
+
+## Third problem: the people with an AI ban don't feel a problem
+
+So illustrators won't pay for proof, and the buyer had to be someone who
+*enforces* an AI rule.
+
+Every major illustration competition I checked bans AI:
+
+| Competition | Rule | Verification described in the rules |
+|---|---|---|
+| Bologna Illustrators Exhibition | AI tools "not permitted" | none |
+| Society of Illustrators Annual | AI "at any capacity" not eligible | none |
+| Communication Arts Illustration | no text-to-image submissions | hi-res files from winners |
+| 3x3 International Illustration Show | no AI-generated images | hi-res files from winners |
+| Illustration West | entrant warrants work isn't mainly AI | none |
+| San Diego Comic-Con Art Show | AI "partially or wholly" not allowed | the coordinator decides |
+
+Bologna alone received 20,840 illustrations from 4,168 illustrators in 2026.
+Nobody can check that by hand. That looked like the opening.
+
+Then I wrote to the organizers: six competitions and platforms, some of them
+in the table. Three answered:
+
+- One said the rule keeps most AI work out. Some had still been entered, and
+  some had even been **selected as winners**; they usually find out when they
+  ask winners for more material. They didn't see a tool being useful for their
+  process.
+- Another called "no AI" an honor system, and doubted AI entries reach them at
+  all, given how opposed illustrators are to AI.
+- A commission platform said it couldn't disclose how it enforces its AI
+  policy.
+
+I also wrote to about a dozen children's book publishers, and one agreed to an
+interview. It commissions 100 to 500 illustrations a year, half from new
+illustrators, and has never once doubted one. They follow the sketches as the
+work progresses and rely on a "no AI" clause in the contract.
+
+Put together: the rule is there, enforcement is light, and nobody experiences
+that as a cost. You can't sell a painkiller to someone who isn't in pain.
 
 ## Where it does hurt: photography
 
@@ -191,7 +201,8 @@ Maybe it's simply too early. If an illustration competition ever adds a
 verification step to its rules, or a drawing app ships signed process exports,
 I'll know.
 
-## Wait, have you used AI to create this product? 
-Indeed; I've let the AI produce the code and basically never checked the codebase myself.  
+## Wait, have you used AI to create this product?
+
+Indeed; I've let the AI produce the code and basically never checked the codebase myself. What I did was control the ideas: I wrote up [how I ran Claude on it]({% post_url 2026-11-21-how-claude-is-run-in-hic-et-nunc %}) in a separate post.  
 To me the code needed for this product was never the point. It was just a means to an end, and it would've been far from being a work of art anyway. 
 Moreover, my view on the relation between AI and art is not simply "AI should be kept away from the realm of art". I've already witnessed fruitful blends of AI in art in the field of [music](https://en.wikipedia.org/wiki/Exai) and [painting](https://en.wikipedia.org/wiki/Edmond_de_Belamy). In chess, the most artistic moves I've seen were made by Stockfish or similar engines; Matthew Sadler writes about it at length in his great book [The Silicon Road to Chess Improvement](https://www.amazon.com/dp/9056919830). With that said, I think it's useful to understand _how_ a work of art was made, that's the ethos behind my product.

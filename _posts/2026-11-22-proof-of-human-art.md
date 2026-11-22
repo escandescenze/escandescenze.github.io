@@ -186,7 +186,7 @@ I would've liked to create more human connections on this journey. Never say nev
 
 The code is [on GitHub](https://github.com/andreanerla/hic-et-nunc) under AGPL.
 If you run a competition, a certification service or a commission platform and *do* spend
-time checking process files by hand, I'd like to hear from you. If you're an illustrator and planning to use my product, I'd love to hear from you.
+time checking process files by hand, I'd like to [hear from you](mailto:andreanerla96@gmail.com). If you're an illustrator and planning to use my product, I'd love to hear from you too.
 
 ## Have you used AI to create this product?
 

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "I tried to build proof that art isn't AI. The people who ban AI didn't need it."
-date: 2026-11-13
+title: "Art, AI and the Problem that Never Was"
+date: 2026-11-22
 ---
 
 <img src="/assets/images/spray.png" alt="paint spray" class="post-figure-right">
@@ -19,9 +19,15 @@ saves a time-lapse of every stroke inside the project file. So why not check
 the recording against the delivered image automatically, and give
 illustrators a proof that holds up?
 
-I wrote the code. Then I went looking for someone who would pay for it. This
+I wrote the code, then I went looking for someone who would pay for it. This
 post is about what I found, because I think the findings are more useful than
 the code (which is now [open source](https://github.com/andreanerla/hic-et-nunc)).
+
+## The name and philosophy behind the project
+
+The latin concept of [hic-et-nunc](https://it.wikipedia.org/wiki/Hic_et_nunc) (literally: here and now) has been interpreted in various ways by the different philosophical traditions. Walter Benjamin uses it in his essay ["The Work of Art in the Age of Mechanical Reproduction"](https://en.wikipedia.org/wiki/The_Work_of_Art_in_the_Age_of_Mechanical_Reproduction) to describe the spatial, temporal and cultural configuration in which the original work of art gets created and by which the work of art possesses an _aura_ which gets lost in the mechanical reproduction of the work of art. This process is not only destructive; Benjamin thinks that the reproduction of the work of art, and consequently its displacement of _hic et nunc_ and loss of _aura_, are also positive forces, by virtue of getting the masses closer to the work of art, even if in its reproduced version. If you're interested in it I suggest reading the whole essay, which is around 50 pages long.
+
+My project is a humble attempt at reconstructing the process of creation of a digital work of art, somehow reproducing its _hic et nunc_ and bringing back its lost _aura_.
 
 ## The idea
 
@@ -33,24 +39,32 @@ which logs every pen stroke and a snapshot of the canvas every five seconds in
 a hash-chained log. Recording live turned out to be much stronger evidence than
 reading a time-lapse afterwards, so Krita became the main path.
 
-The tool runs on the illustrator's own computer and checks a few things: does
-the last recorded state match the delivered image, did the canvas start blank,
-are there large detailed regions that appear in one step (a pasted image), does
-the line work follow the edges of a declared reference (tracing), and does the
-delivered image differ locally from what was drawn (a signature, a logo,
-replaced content). It doesn't say "AI" or "not AI". It writes one page for a
+The tool runs on the illustrator's own computer and checks a few things:
+
+- does the last recorded state match the delivered image,
+- did the canvas start blank,
+- are there large detailed regions that appear in one step (a pasted image),
+- does the line work follow the edges of a declared reference (tracing), and
+- does the delivered image differ locally from what was drawn (a signature, a logo, replaced content).
+
+It doesn't say "AI" or "not AI". It writes one page for a
 client or a jury: *consistent*, *needs review* or *inconsistent*, with the
 reasons and what a reviewer should look at.
 
-## The name and philosophy behind the project
-
-The latin concept of [hic-et-nunc](https://it.wikipedia.org/wiki/Hic_et_nunc) (literally: here and now) has been interpreted in various ways by the different philosophical traditions. Walter Benjamin uses it in his essay ["The Work of Art in the Age of Mechanical Reproduction"](https://en.wikipedia.org/wiki/The_Work_of_Art_in_the_Age_of_Mechanical_Reproduction) to describe the spatial, temporal and cultural configuration in which the original work of art gets created and by which the work of art possesses an _aura_ which gets lost in the mechanical reproduction of the work of art. This process is not only destructive; Benjamin thinks that the reproduction of the work of art, and consequently its displacement of _hic et nunc_ and loss of _aura_, are also positive forces, by virtue of getting the masses closer to the work of art, even if in its reproduced version. If you're interested in it I suggest reading the whole essay, which is around 50 pages long.
-
-My project is a humble attempt at reconstructing the process of creation of a digital work of art, somehow reproducing its _hic et nunc_ and bringing back its lost _aura_.
+<div class="post-figures">
+  <figure>
+    <a href="/assets/images/free-drawing.jpg"><img src="/assets/images/free-drawing.jpg" alt="hic et nunc report for a free drawing recorded in Krita, verdict: consistent"></a>
+    <figcaption>A free drawing: <em>consistent</em>.</figcaption>
+  </figure>
+  <figure>
+    <a href="/assets/images/matisse-2-tracing.jpg"><img src="/assets/images/matisse-2-tracing.jpg" alt="hic et nunc report for a drawing traced over a Matisse, verdict: needs review"></a>
+    <figcaption>Tracing over a Matisse: <em>needs review</em>.</figcaption>
+  </figure>
+</div>
 
 ## First problem: the cheap alternative is very good
 
-Before talking to anyone, the obvious substitute was detectors. A detector
+The obvious substitute was detectors. A detector
 like Hive costs about $0.006 per image. In an
 [academic evaluation](https://arxiv.org/abs/2402.03214) it reached 98% accuracy
 with 0% false positives on clean human art. Its weak spots are real but narrow:
@@ -66,7 +80,7 @@ case, a prize, an accusation.
 ## Second problem: the "human-made" market is crowded and nearly free
 
 I found at least seven services that certify work as human-made, most launched
-in the last two years:
+in the last two years (I think most of them are not live anymore, to be honest):
 
 - some take a declaration (Stampr explicitly does not verify human creation);
 - some check identity rather than the work (the Authors Guild's "Human
@@ -86,9 +100,9 @@ proposed a meeting, then went quiet; the others haven't answered.
 
 ## What happens to illustrators
 
-Asking illustrators directly got me little. I messaged six; the one who
+Asking illustrators directly got me little. I DM'd on Instagram six of them; the one who
 answered wasn't interested and didn't know anyone who'd had problems with AI
-accusations. So I read through public accounts of illustrators accused of using
+accusations. So I read (mostly on Reddit) through public accounts of illustrators accused of using
 AI instead. They're selected for incidents, so they show *what* happens, not
 *how often*:
 
@@ -123,8 +137,7 @@ Every major illustration competition I checked bans AI:
 | Illustration West | entrant warrants work isn't mainly AI | none |
 | San Diego Comic-Con Art Show | AI "partially or wholly" not allowed | the coordinator decides |
 
-Bologna alone received 20,840 illustrations from 4,168 illustrators in 2026.
-Nobody can check that by hand. That looked like the opening.
+I believe most of these competitions received on the order of tens of thousands of illustrations per year - there's no way to manually AI-check all of them.
 
 Then I wrote to the organizers: six competitions and platforms, some of them
 in the table. Three answered:
@@ -146,22 +159,6 @@ work progresses and rely on a "no AI" clause in the contract.
 Put together: the rule is there, enforcement is light, and nobody experiences
 that as a cost. You can't sell a painkiller to someone who isn't in pain.
 
-## Where it does hurt: photography
-
-One organizer pointed out that photography contests have the harder problem,
-and the public record agrees. An AI image reached the
-[finalists of the Hasselblad Masters 2026](https://www.photoworkout.com/?p=221203);
-Reddit flagged it within hours, while the jury had missed it. Nikon
-[disqualified the winner](https://www.photoworkout.com/?p=223576) of its 2026
-Small World in Motion contest after scientists spotted implausible footage.
-The Canadian association CAPA now
-[checks finalists](https://capacanada.ca/new-ai-authentication-standards/) with
-RAW files, forensics, reverse image search and Hive, and plans optional
-Content Credentials from 2027.
-
-The pattern: organizations act *after* a public embarrassment, not before.
-That's hard to sell into in advance.
-
 ## The threat to the whole approach
 
 Process evidence has its own expiry date. AI agents that operate software can
@@ -172,37 +169,88 @@ to fake too. And when demand does arrive, the cheapest answer is the drawing
 app itself exporting a signed time-lapse, not a third party analyzing it. My
 Krita plugin is a step in that direction, but it's a plugin anyone can install
 and its log is written on the illustrator's own machine, so a determined forger
-could rebuild it. The app's maker is in a better position to sign it.
+could rebuild it. 
 
-## What I'd do differently
+## What went well
 
-- **Search for substitutes and competitors before writing code.** I found the
-  certifiers by searching their names, after the prototype existed.
-- **Ask enforcers about past cases, not hypotheticals.** "Have you ever doubted
-  a submission? What happened?" told me more than any pitch.
-- **Set kill criteria you can actually fail on their merits.** Mine asked for a
-  paid pilot in three weeks for a product that didn't exist; it would have
-  failed whatever the truth was.
+- Shaping the product with Claude was way more fun than I expected. I learned a lot on product management and on how to guide Claude (or let it guide me). More on that below.
+- The experience of free-hand drawing was something I missed doing, even though I suck at it.
+- I think the product will be useful for illustrators and competitions, even in this unfinished version.
+- I finally managed to kickstart my blog, and write some thoughts that were cluttering my mind.
+
+## What went wrong
+
+I would've liked to create more human connections on this journey. Never say never, though. 
 
 ## What's left
 
 The code is [on GitHub](https://github.com/andreanerla/hic-et-nunc) under AGPL.
-It records a drawing live in Krita, or reads a time-lapse video or a Procreate
-file after the fact, compares the process with the final image, and writes a
-one-page report that flags pastes, tracing, a canvas that didn't start blank
-and local changes. The tracing limit was set on six real Krita sessions and the
-delivered-image check was tested on nine, but they were all drawn by one person
-(me) with one tablet. The other thresholds are calibrated on synthetic images
-only, and the README says where they're weak. If you run a
-competition, a certification service or a commission platform and *do* spend
-time checking process files by hand, I'd like to hear from you.
+If you run a competition, a certification service or a commission platform and *do* spend
+time checking process files by hand, I'd like to hear from you. If you're an illustrator and planning to use my product, I'd love to hear from you.
 
-Maybe it's simply too early. If an illustration competition ever adds a
-verification step to its rules, or a drawing app ships signed process exports,
-I'll know.
+## Have you used AI to create this product?
 
-## Wait, have you used AI to create this product?
-
-Indeed; I've let the AI produce the code and basically never checked the codebase myself. What I did was control the ideas: I wrote up [how I ran Claude on it]({% post_url 2026-11-21-how-claude-is-run-in-hic-et-nunc %}) in a separate post.  
+Indeed; I've let the AI produce the code and basically never checked the codebase myself. What I did was control the ideas (more on how [below](#how-i-ran-claude-on-it)).  
 To me the code needed for this product was never the point. It was just a means to an end, and it would've been far from being a work of art anyway. 
 Moreover, my view on the relation between AI and art is not simply "AI should be kept away from the realm of art". I've already witnessed fruitful blends of AI in art in the field of [music](https://en.wikipedia.org/wiki/Exai) and [painting](https://en.wikipedia.org/wiki/Edmond_de_Belamy). In chess, the most artistic moves I've seen were made by Stockfish or similar engines; Matthew Sadler writes about it at length in his great book [The Silicon Road to Chess Improvement](https://www.amazon.com/dp/9056919830). With that said, I think it's useful to understand _how_ a work of art was made, that's the ethos behind my product.
+
+
+### How I ran Claude on it
+
+One Claude Code session per task, steered by the repo's control files and gated by me at three points. Sources: `CLAUDE.md`, `PROMPTS.md`, `.claude/settings.json` and decision D-013 in the [repo](https://github.com/andreanerla/hic-et-nunc).
+
+<pre class="mermaid">
+flowchart LR
+  A(["Me"])
+
+  subgraph CTRL["Control files (repo)"]
+    direction TB
+    CM["CLAUDE.md<br>rules, loaded automatically"]
+    PR["PRODUCT_RULES.md<br>decision order"]
+    SP["SPEC.md<br>scope"]
+    DE["DECISIONS.md<br>append-only"]
+    ST["STATE.md<br>current task, queue, known problems"]
+  end
+
+  subgraph CC["Claude Code session (one task)"]
+    direction TB
+    S1["1 Start<br>read SPEC, DECISIONS, STATE<br>5-line reply"]
+    S2["2 Plan<br>files, approach, not doing"]
+    S3["3 Build<br>smallest diff"]
+    S4["4 Check<br>pytest + real-data table"]
+    S5["5 Wrap up<br>rewrite STATE, add decisions,<br>propose SPEC edit + commit"]
+    S1 --> S2 --> S3 --> S4 --> S5
+  end
+
+  HK["Hook on every .py edit<br>ruff check + format, blocks on error"]
+  DATA[("Real recordings<br>outside the repo<br>HIC_ET_NUNC_KRITA_DATA")]
+  CHAT["Claude chat<br>reviews against PRODUCT_RULES<br>and 'Done when'"]
+  PUB["Public repo<br>hand export of PUBLIC_FILES.txt"]
+
+  A -- "prompt from PROMPTS.md" --> S1
+  S1 -. "confirm task" .-> A
+  S2 -. "approve plan" .-> A
+  S5 -. "approve decisions, SPEC, commit" .-> A
+  CTRL --> S1
+  S3 --- HK
+  S4 --- DATA
+  S5 --> ST
+  S5 --> DE
+  A --> CHAT
+  CHAT -. "review" .-> A
+  A --> PUB
+</pre>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+</script>
+
+- **Solid arrow**: input or output, what Claude reads or writes.
+- **Dotted arrow**: a gate, where Claude stops and waits for me.
+- **Hook**: `.claude/settings.json`, PostToolUse on Edit/Write. Python rules
+  Ruff can't check are in `.claude/rules/python.md`.
+- **Chat review**: D-013. The decision record gives its context and reason as
+  "unknown".
+- **Not used**: project-defined subagents, skills, CI, scheduled agents, MCP
+  servers.
